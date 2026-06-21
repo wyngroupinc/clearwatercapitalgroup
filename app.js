@@ -104,15 +104,15 @@ function buildFaq(id){
 
 /* ---------------- RESOURCES (resources page) ---------------- */
 const resources = [
-  ['Fundamentals','Purchase vs. refinance: which question are you answering?','Buying and refinancing solve different problems. Here\u2019s how to tell which decision you are actually making.'],
-  ['Getting started','How pre-approval works','What a pre-approval reviews, what it signals to sellers, and why doing it early changes how you shop.'],
-  ['Payments','What actually affects your mortgage payment','Principal, interest, taxes, insurance, and mortgage insurance \u2014 the five inputs that move your monthly number.'],
-  ['Programs','FHA vs. Conventional','A plain-language look at how these two common paths differ, and where each may make sense.'],
-  ['Preparation','What documents you need for a mortgage','Income, assets, and identity \u2014 the paperwork that keeps your file moving without delays.'],
-  ['Commercial','Commercial real estate loan basics','How commercial financing is evaluated differently from a home loan, and what investors should expect.'],
-  ['Investing','DSCR explained','Debt-service coverage ratio, why lenders care about it, and how investors use it to read a deal.'],
-  ['Strategy','Cash-out refinance strategy','When tapping equity can be a smart move \u2014 and the trade-offs worth weighing first.'],
-  ['Preparation','How to prepare before you apply','A short checklist to get organized so your application starts from a position of strength.']
+  ['Fundamentals','Purchase vs. refinance: which question are you answering?','Buying and refinancing solve different problems. Here\u2019s how to tell which decision you are actually making.','purchase-vs-refinance.html'],
+  ['Getting started','How pre-approval works','What a pre-approval reviews, what it signals to sellers, and why doing it early changes how you shop.','how-pre-approval-works.html'],
+  ['Payments','What actually affects your mortgage payment','Principal, interest, taxes, insurance, and mortgage insurance \u2014 the five inputs that move your monthly number.','what-affects-your-mortgage-payment.html'],
+  ['Programs','FHA vs. Conventional','A plain-language look at how these two common paths differ, and where each may make sense.','fha-vs-conventional.html'],
+  ['Preparation','What documents you need for a mortgage','Income, assets, and identity \u2014 the paperwork that keeps your file moving without delays.','documents-you-need.html'],
+  ['Commercial','Commercial real estate loan basics','How commercial financing is evaluated differently from a home loan, and what investors should expect.','commercial-loan-basics.html'],
+  ['Investing','DSCR explained','Debt-service coverage ratio, why lenders care about it, and how investors use it to read a deal.','dscr-explained.html'],
+  ['Strategy','Cash-out refinance strategy','When tapping equity can be a smart move \u2014 and the trade-offs worth weighing first.','cash-out-refinance-strategy.html'],
+  ['Preparation','How to prepare before you apply','A short checklist to get organized so your application starts from a position of strength.','how-to-prepare-before-you-apply.html']
 ];
 const resColors = [['#2E94C8','#0D1B2A'],['#1F2A5E','#2E94C8'],['#8E8E8E','#0D1B2A']];
 function buildRes(){
@@ -128,7 +128,7 @@ function buildRes(){
       +'<div class="pl" style="width:130px;height:24px;background:#8E8E8E;top:76px;left:30px;opacity:.4"></div></div>'
       +'<div class="res-body"><span class="res-cat">'+r[0]+'</span><h3>'+r[1]+'</h3><p>'+r[2]+'</p>'
       +'<span class="more">Read guide <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>';
-    card.addEventListener('click',()=>{ location.href='contact.html'; });
+    card.addEventListener('click',()=>{ location.href = r[3]; });
     g.appendChild(card);
   });
   observeReveals(g);

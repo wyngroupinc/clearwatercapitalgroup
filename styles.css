@@ -447,6 +447,10 @@
   footer .wordmark{font-family:'Montserrat';font-weight:700;letter-spacing:.12em;color:var(--ink);font-size:1.05rem;margin-bottom:14px}
   footer .wordmark small{display:block;font-size:.52rem;letter-spacing:.34em;color:var(--blue-deep);margin-top:4px;font-weight:600}
   footer p.desc{font-size:.9rem;max-width:34ch;margin-bottom:20px}
+  .foot-addr{display:flex;align-items:flex-start;gap:9px;font-size:.9rem;color:var(--muted);margin-bottom:22px;line-height:1.5;max-width:34ch}
+  .foot-addr svg{flex:none;width:17px;height:17px;color:var(--green);margin-top:2px}
+  .foot-addr a{color:var(--muted);text-decoration:none;transition:color .2s}
+  .foot-addr a:hover{color:var(--green)}
   .foot-col h5{color:var(--ink);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:16px;font-family:'Inter'}
   .foot-col a{display:block;font-size:.92rem;margin-bottom:11px;color:var(--muted);cursor:pointer;transition:color .2s}
   .foot-col a:hover{color:var(--blue-deep)}
