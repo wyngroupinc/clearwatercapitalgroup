@@ -237,6 +237,46 @@
   .card .more svg{width:15px;height:15px;transition:transform .25s}
   .card:hover .more svg{transform:translateX(4px)}
 
+  /* program cards */
+  .prog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(246px,1fr));gap:18px}
+  .prog-card{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--border);
+    border-radius:var(--r);padding:26px 22px;
+    transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s}
+  .prog-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--blue),var(--green));transform:scaleX(0);transform-origin:left;
+    transition:transform .4s var(--ease)}
+  .prog-card:hover::before{transform:scaleX(1)}
+  .prog-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--border-strong)}
+  .prog-ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+    background:var(--blue-soft);color:var(--blue-deep);margin-bottom:15px;
+    transition:background .35s var(--ease),color .35s var(--ease)}
+  .prog-ic svg{width:22px;height:22px}
+  .prog-card:hover .prog-ic{background:var(--green-soft);color:var(--green)}
+  .prog-tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--green);margin-bottom:7px}
+  .prog-card h3{font-size:1.12rem;font-weight:600;margin-bottom:7px}
+  .prog-card p{font-size:.91rem;color:var(--muted);line-height:1.55}
+
+  /* benefit cards (numbered, sophisticated) */
+  .benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .benefit-card{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--border);
+    border-radius:var(--r);padding:32px 28px;
+    transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s}
+  .benefit-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--blue),var(--green));transform:scaleX(0);transform-origin:left;
+    transition:transform .4s var(--ease)}
+  .benefit-card:hover::before{transform:scaleX(1)}
+  .benefit-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--border-strong)}
+  .benefit-idx{position:absolute;top:24px;right:26px;font-family:'Sora',sans-serif;font-weight:800;
+    font-size:1.5rem;letter-spacing:-.02em;color:var(--green);opacity:.16;line-height:1}
+  .benefit-ic{width:50px;height:50px;border-radius:13px;display:grid;place-items:center;
+    background:var(--blue-soft);color:var(--blue-deep);margin-bottom:18px;
+    transition:background .35s var(--ease),color .35s var(--ease)}
+  .benefit-ic svg{width:25px;height:25px}
+  .benefit-card:hover .benefit-ic{background:var(--green-soft);color:var(--green)}
+  .benefit-card h3{font-size:1.18rem;font-weight:600;margin-bottom:9px}
+  .benefit-card p{font-size:.95rem;color:var(--muted);line-height:1.6}
+
   /* feature list */
   .feat{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 36px}
   .feat-item{display:flex;gap:15px}
@@ -431,6 +471,7 @@
     .hero-photo{height:320px;margin-top:26px}
     .pgallery{grid-template-columns:repeat(2,1fr)}
     .g3,.feat,.wh{grid-template-columns:repeat(2,1fr)}
+    .benefit-grid{grid-template-columns:repeat(2,1fr)}
     .proc{grid-template-columns:1fr;gap:14px}
     .step .bar{--h:auto!important;min-height:78px;transform:none;margin-bottom:0}
     .step .num{transform:none}
@@ -445,6 +486,7 @@
   @media (max-width:600px){
     .section{padding:68px 0}
     .g3,.g2,.feat,.checklist,.docs,.wh,.calc-grid2,.form-row{grid-template-columns:1fr}
+    .benefit-grid{grid-template-columns:1fr}
     .pgallery,.owners{grid-template-columns:1fr}
     .calc-inputs,.calc-out{padding:26px}
     .metrics{grid-template-columns:1fr}
