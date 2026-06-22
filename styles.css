@@ -377,6 +377,12 @@
     font-family:'Inter';font-size:1rem;color:var(--ink);background:#fff;transition:border-color .2s,box-shadow .2s;
   }
   .field input.pad{padding-left:30px}
+  .dp-row{display:flex;gap:8px;align-items:stretch}
+  .seg{display:inline-flex;border:1px solid var(--border-strong);border-radius:10px;overflow:hidden;flex:none}
+  .seg-btn{border:none;background:#fff;color:var(--muted);font-weight:700;font-size:.95rem;padding:0 15px;cursor:pointer;transition:background .2s,color .2s;font-family:'Inter',sans-serif}
+  .seg-btn+.seg-btn{border-left:1px solid var(--border-strong)}
+  .seg-btn.active{background:var(--green);color:#fff}
+  .seg-btn:hover:not(.active){background:var(--green-soft);color:var(--green)}
   .field input:focus,.field select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--ink-glow)}
   .calc-grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
   .out-total{border-bottom:1px solid rgba(255,255,255,.14);padding-bottom:24px;margin-bottom:24px}
@@ -503,11 +509,16 @@
     .pgallery{grid-template-columns:repeat(2,1fr)}
     .g3,.feat,.wh{grid-template-columns:repeat(2,1fr)}
     .benefit-grid{grid-template-columns:repeat(2,1fr)}
-    .proc{grid-template-columns:1fr;gap:14px}
-    .step .bar{--h:auto!important;min-height:78px;transform:none;margin-bottom:0}
-    .step .num{transform:none}
-    .step{display:grid;grid-template-columns:78px 1fr;gap:16px;align-items:center}
-    .step .bar{margin-bottom:0}
+    .proc{grid-template-columns:1fr;gap:0;margin-top:34px}
+    .step{display:grid;grid-template-columns:52px 1fr;grid-template-rows:auto auto;column-gap:18px;align-items:start;padding-bottom:30px;position:relative}
+    .step:last-child{padding-bottom:4px}
+    .step:not(:last-child)::before{content:"";position:absolute;left:26px;top:58px;bottom:-2px;width:2px;background:linear-gradient(180deg,#cfe4f1,var(--green-soft))}
+    .step .bar{--h:auto!important;height:52px;width:52px;min-height:0;border-radius:50%;transform:none;margin:0;padding:0;display:grid;place-items:center;background:var(--blue-soft);border:1px solid #cfe4f1;z-index:1;grid-column:1;grid-row:1 / span 2;align-self:start}
+    .step:nth-child(5) .bar{background:linear-gradient(135deg,var(--green),var(--green-deep));border-color:transparent}
+    .step .num{transform:none;font-size:1.08rem;color:var(--blue-deep)}
+    .step:nth-child(5) .num{color:#fff}
+    .step h4{grid-column:2;grid-row:1;align-self:center;font-size:1.05rem;margin-bottom:2px;min-height:52px;display:flex;align-items:center}
+    .step p{grid-column:2;grid-row:2;font-size:.92rem;margin-top:-6px}
     .band{flex-direction:column;align-items:flex-start;padding:38px}
     .foot-grid{grid-template-columns:1fr 1fr}
     .nav-links{display:none}
@@ -519,7 +530,7 @@
     .g3,.g2,.feat,.checklist,.docs,.wh,.calc-grid2,.form-row{grid-template-columns:1fr}
     .benefit-grid{grid-template-columns:1fr}
     .pgallery,.owners{grid-template-columns:1fr}
-    .calc-inputs,.calc-out{padding:26px}
+    .calc-inputs,.calc-out{padding:24px 20px}
     .metrics{grid-template-columns:1fr}
     .foot-grid{grid-template-columns:1fr}
     .sticky-cta{display:block}
@@ -527,6 +538,22 @@
     .hero{padding:36px 0 60px}
     .tabs{display:flex;width:100%}
     .tab{flex:1;padding:12px 10px}
+    .wrap{padding:0 18px}
+    .stat-row{flex-direction:column;gap:12px}
+    .stat-pill{max-width:none;width:100%;padding:22px}
+    .hero-ctas,.final-ctas{flex-direction:column;align-items:stretch}
+    .hero-ctas .btn,.final-ctas .btn,.cta-row .btn{width:100%;justify-content:center}
+    .cta-row{flex-direction:column}
+    .band{padding:32px 24px}
+    .band h2{font-size:1.5rem}
+    .article-cta{padding:30px 22px}
+    .article-body{padding:30px 4px 60px}
+    .prog-grid{grid-template-columns:1fr}
+    .badges{gap:10px}
+    .badge{width:100%}
+    .trust-inner{gap:12px 22px}
+    h2.h{font-size:clamp(1.7rem,7vw,2.1rem)}
+    .article-head h1{font-size:clamp(1.7rem,7vw,2.1rem)}
   }
   @media (prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important}

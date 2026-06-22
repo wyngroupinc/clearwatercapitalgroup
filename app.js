@@ -144,8 +144,14 @@ function amort(principal, annualRate, years){
   if(r===0) return principal/n;
   return principal*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
 }
+let dpMode='pct';
 function calcMortgage(){
-  const price=num('m_price'), down=num('m_down');
+  const price=num('m_price');
+  const dpInput=num('m_down');
+  let down, pct;
+  if(dpMode==='pct'){ pct=dpInput; down=price*(dpInput/100); }
+  else { down=dpInput; pct=price>0?(down/price*100):0; }
+  down=Math.min(down,price);
   const loan=Math.max(price-down,0);
   const pi=amort(loan,num('m_rate'),parseInt(document.getElementById('m_term').value));
   const tax=num('m_tax')/12, ins=num('m_ins')/12, hoa=num('m_hoa'), pmi=loan*(num('m_pmi')/100)/12;
@@ -156,10 +162,22 @@ function calcMortgage(){
   document.getElementById('m_ohoa').textContent=fmt.format(hoa);
   document.getElementById('m_opmi').textContent=fmt.format(pmi);
   document.getElementById('m_total').innerHTML=fmt.format(total)+'<span>/mo</span>';
-  const pct=price>0?Math.round(down/price*100):0;
-  document.getElementById('m_dpct').textContent=pct+'%';
+  const hint=document.getElementById('m_dpct');
+  if(hint) hint.textContent = dpMode==='pct' ? '= '+fmt.format(down) : '= '+Math.round(pct)+'%';
+}
+function setDpMode(newMode, btn){
+  if(newMode===dpMode) return;
+  const price=num('m_price'), cur=num('m_down'), dn=document.getElementById('m_down');
+  if(newMode==='amt'){ dn.value=Math.round(price*(cur/100)); }
+  else { dn.value=price>0?+(cur/price*100).toFixed(1):0; }
+  dpMode=newMode;
+  document.querySelectorAll('.seg-btn[data-dpmode]').forEach(b=>b.classList.toggle('active',b===btn));
+  calcMortgage();
 }
 if(document.getElementById('m_price')){
+  document.querySelectorAll('.seg-btn[data-dpmode]').forEach(btn=>{
+    btn.addEventListener('click',()=>setDpMode(btn.dataset.dpmode, btn));
+  });
   ['m_price','m_down','m_rate','m_term','m_tax','m_ins','m_hoa','m_pmi'].forEach(id=>{
     const el=document.getElementById(id); if(el) el.addEventListener('input',calcMortgage);
   });
