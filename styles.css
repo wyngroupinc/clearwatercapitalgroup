@@ -587,23 +587,24 @@
 }
 
 /* ---- photo folded into an existing section header ---- */
-.head-row{display:grid;grid-template-columns:1.16fr .84fr;gap:46px;align-items:center;
-  margin-bottom:46px;text-align:left}
-.head-row .head-text{min-width:0}
-.head-row .head-text h2.h,.head-row .head-text .lead{max-width:none;margin-left:0;margin-right:0}
-.head-row .hero-photo{height:248px}
-.head-row .hero-photo-wrap::before{width:88px;height:88px;border-radius:18px;top:-16px;right:-14px}
-.head-row .hero-photo-wrap.left::before{left:-14px;right:auto}
-.head-row.reverse .head-text{order:2}
-.head-row.reverse .hero-photo-wrap{order:1}
-.head-chip{position:absolute;left:15px;bottom:15px;z-index:2;display:inline-flex;align-items:center;gap:8px;
+.head-row{display:flex;align-items:center;gap:56px;margin-bottom:46px;text-align:left}
+.head-row.reverse{flex-direction:row-reverse}
+.head-row .head-text{flex:1 1 auto;min-width:0}
+.head-row .head-text h2.h{max-width:20ch;margin-left:0;margin-right:0}
+.head-row .head-text .lead{max-width:52ch;margin-left:0;margin-right:0}
+.head-row .hero-photo-wrap{flex:0 0 380px;max-width:40%}
+.head-row .hero-photo{height:220px}
+.head-row .hero-photo-wrap::before{width:82px;height:82px;border-radius:18px;top:-14px;right:-12px}
+.head-row.reverse .hero-photo-wrap::before{left:-12px;right:auto}
+.head-chip{position:absolute;left:14px;bottom:14px;z-index:2;display:inline-flex;align-items:center;gap:8px;
   background:rgba(255,255,255,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-  border:1px solid rgba(255,255,255,.7);border-radius:999px;padding:7px 14px;
-  box-shadow:0 12px 30px -14px rgba(13,27,42,.55);font-size:.78rem;font-weight:600;
+  border:1px solid rgba(255,255,255,.7);border-radius:999px;padding:6px 13px;
+  box-shadow:0 12px 30px -14px rgba(13,27,42,.55);font-size:.76rem;font-weight:600;
   color:var(--ink);letter-spacing:-.01em}
 .head-chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);flex:none}
+@media(max-width:980px){ .head-row{gap:40px} .head-row .hero-photo-wrap{flex-basis:330px} }
 @media(max-width:860px){
-  .head-row{grid-template-columns:1fr;gap:24px;margin-bottom:30px}
-  .head-row.reverse .head-text,.head-row.reverse .hero-photo-wrap{order:0}
+  .head-row,.head-row.reverse{flex-direction:column;align-items:stretch;gap:22px;margin-bottom:30px}
+  .head-row .hero-photo-wrap{flex:1 1 auto;max-width:none;width:100%}
   .head-row .hero-photo{height:200px}
 }
