@@ -571,24 +571,17 @@
   }
 
 
-/* ---- full-bleed photo background bands (hero-style) ---- */
-.photo-band{position:relative;overflow:hidden;color:#fff;background:#0D1B2A;
-  background-size:cover;background-position:center;background-repeat:no-repeat;padding:120px 0}
-.photo-band::before{content:"";position:absolute;inset:0;z-index:0;
-  background:linear-gradient(150deg,rgba(13,27,42,.9) 0%,rgba(13,27,42,.58) 48%,rgba(13,27,42,.84) 100%)}
-.photo-band::after{content:"";position:absolute;z-index:0;width:520px;height:520px;border-radius:50%;
-  background:radial-gradient(circle,rgba(46,148,200,.30),transparent 65%);top:-170px;right:-120px;pointer-events:none}
-.photo-band>.wrap{position:relative;z-index:1}
-.photo-band .band-inner{max-width:600px}
-.photo-band.center .band-inner{max-width:680px;margin:0 auto;text-align:center}
-.photo-band.center h2.h,.photo-band.center .lead,.photo-band.center .disclaimer{margin-left:auto;margin-right:auto}
-.photo-band .eyebrow{color:#9BD6F0}
-.photo-band .eyebrow::before{border-color:#9BD6F0}
-.photo-band h2,.photo-band h2.h{color:#fff}
-.photo-band .lead{color:#DDE7F0}
-.photo-band .disclaimer{color:rgba(255,255,255,.55)}
-.photo-band .pb-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
-.photo-band.center .pb-ctas{justify-content:center}
-.photo-band .btn-outline-light{color:#fff;border-color:rgba(255,255,255,.55)}
-.photo-band .btn-outline-light:hover{color:#fff;border-color:#fff;background:rgba(255,255,255,.1)}
-@media(max-width:760px){ .photo-band{padding:84px 0} .photo-band::after{display:none} }
+
+/* ---- hero-style split feature rows ---- */
+.feature-row{position:relative;overflow:hidden}
+.feature-row .frow{display:grid;grid-template-columns:1.02fr .98fr;gap:54px;align-items:center}
+.feature-row .ftext .hero-ctas{margin-top:28px}
+.feature-row.reverse .frow .ftext{order:2}
+.feature-row.reverse .frow .hero-photo-wrap{order:1}
+.feature-row .hero-photo-wrap.left::before{left:-22px;right:auto}
+@media(max-width:860px){
+  .feature-row .frow{grid-template-columns:1fr;gap:34px}
+  .feature-row.reverse .frow .ftext,
+  .feature-row.reverse .frow .hero-photo-wrap{order:0}
+  .feature-row .hero-photo{height:320px}
+}
